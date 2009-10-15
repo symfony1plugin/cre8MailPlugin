@@ -1,0 +1,14 @@
+all:
+  sfSimpleCMS:
+    rich_editing: off
+  sf_ele_admin_email:
+    template_parameter_prefix: (+
+    template_parameter_sufix: +)
+    templates:
+      send_to_friend:
+        name: Send to Friend
+        params: [user_name, user_email, article_title, article_link]
+        from: sender@company.com
+    mailer_config:
+      from: mainsender@company.com
+      reply_to: mainsender@company.com

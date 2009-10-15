@@ -1,0 +1,26 @@
+propel: 
+  _attributes:    { package: plugins.cre8MailPlugin.lib.model }
+
+  cre8_mail_template:
+    id:           ~
+    name:         { type: varchar(60), required: true }
+    subject:      { type: varchar(255), required: true }
+    body:         { type: longvarchar, required: true }
+    text_body:    { type: longvarchar }
+    created_at:   ~
+    updated_at:   ~
+    slug:         { type: varchar(100), required: true }
+    is_restricted: { type: boolean, default: false }
+  
+  cre8_mail_variable:
+    id:           ~
+    name:         { type: varchar(60), required: true }
+    description:  { type: longvarchar }
+    is_complex:   { type: boolean, default: 0 }
+    slug:         { type: varchar(100), required: true }
+  
+  cre8_mail_template_variable:
+    cre8_mail_template_id:  { type: integer, foreignTable: cre8_mail_template, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
+    cre8_mail_variable_id:  { type: integer, foreignTable: cre8_mail_variable, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
+  
+  
